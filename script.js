@@ -1,0 +1,1 @@
+console.log('Start coding the game!')
