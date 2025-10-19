@@ -1,4 +1,4 @@
-// console.log('Start coding the game!')- 
+// console.log('Start coding the game!')- Check if JavaScript is linked correctly
 
 
 // Getting a random number to attach to one of the 3 choices
@@ -12,7 +12,17 @@ if(randomNumber === 0) {
 }else if(randomNumber === 1) {
     console.log("paper");
 }else {
-    console.log("scissors")
+    console.log("scissors");
 }
 }
 getComputerChoice();
+
+// Get human choice 
+//Declare the variable that is holding the human response
+
+let humanChoice; 
+function getHumanChoice() {
+humanChoice = prompt("Choose between rock, paper, scissors!");
+}
+
+getHumanChoice();
