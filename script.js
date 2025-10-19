@@ -41,9 +41,7 @@ function getHumanChoice() {
 // Write the logic to play the entire game
 // Use a for loop to iterate the game 5 times
 
-// Declare 2 global variables for keeping the overall score after 5 games
-let overallHumanScore = 0;
-let overallComputerScore = 0;
+
 
 function playGame() {
     let humanScore = 0;
