@@ -41,12 +41,10 @@ function getHumanChoice() {
 // Write the logic to play the entire game
 // Use a for loop to iterate the game 5 times
 
-
+let humanScore = 0;
+let computerScore = 0;
 
 function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-
     function playRound(humanSelection, computerSelection) {
         if (humanSelection === computerSelection) {
             console.log(`It's a tie! You both picked ${humanSelection}.`);
@@ -61,7 +59,7 @@ function playGame() {
             computerScore++;
         }
     }
-    //Use a for loop that calls the function 5 times, each with a different choice result
+    /* Use a for loop that calls the function 5 times, each with a different choice result
     for (let i = 0; i < 5; i++) {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
@@ -76,6 +74,7 @@ function playGame() {
     } else {
         console.log(`The game is a tie! Final score:  You ${humanScore}- ${computerScore} Computer`);
     }
+    */
 }
 
 playGame();
