@@ -41,6 +41,15 @@ function getHumanChoice() {
 // Write the logic to play the entire game
 // Use a for loop to iterate the game 5 times
 
+
+
+
+// Select the 3 buttons using JS and add an event listener
+
+let rockBtn = document.getElementById("rock");
+let paperBtn = document.getElementById("paper");
+let scissorsBtn = document.getElementById("scissors");
+
 let humanScore = 0;
 let computerScore = 0;
 
