@@ -1,0 +1,63 @@
+/* Basic page setup */
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Button container */
+#container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+button {
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #334155;
+    color: white;
+    transition: 0.2s ease;
+}
+
+/* Hover effect */
+button:hover {
+    background: #475569;
+    transform: scale(1.05);
+}
+
+/* Disabled state (when game ends) */
+button:disabled {
+    background: #1e293b;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Results box */
+#results {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Round result text */
+#resultUpdates {
+    font-size: 20px;
+    margin-bottom: 10px;
+    min-height: 30px;
+}
+
+/* Score text */
+#scoreCurrentRound {
+    font-size: 18px;
+    color: #94a3b8;
+}

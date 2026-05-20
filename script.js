@@ -1,9 +1,18 @@
 
 // Game state
+
 let humanScore = 0;
 let computerScore = 0;
 
+// DOM elements (cached)
+
+const resultUpdatesPara = document.getElementById("resultUpdates");
+const scorePara = document.getElementById("scoreCurrentRound");
+const buttons = document.querySelectorAll("#container button");
+
+
 // Computer choice
+
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   const randomIndex = Math.floor(Math.random() * choices.length);
@@ -11,11 +20,43 @@ function getComputerChoice() {
 }
 
 
+// UI functions
+
+function displayRoundResult(msg) {
+  resultUpdatesPara.textContent = msg;
+}
+
+function updateScoreDisplay() {
+  scorePara.textContent = `Score → You: ${humanScore} | Computer: ${computerScore}`;
+}
+
+function displayGameOver(message) {
+  resultUpdatesPara.textContent = message;
+
+  // disable buttons when game ends
+  buttons.forEach(button => button.disabled = true);
+}
+
+function checkGameOver() {
+  if (humanScore === 5) {
+    displayGameOver("You win the game!");
+    return true;
+  }
+
+  if (computerScore === 5) {
+    displayGameOver("Computer wins the game!");
+    return true;
+  }
+
+  return false;
+}
+
+
 // Core game logic
 
 function playRound(humanSelection, computerSelection) {
   if (humanSelection === computerSelection) {
-    console.log(`It's a tie! You both picked ${humanSelection}.`);
+    displayRoundResult(`It's a tie! You both picked ${humanSelection}.`);
     return;
   }
 
@@ -26,24 +67,23 @@ function playRound(humanSelection, computerSelection) {
 
   if (humanWins) {
     humanScore++;
-    console.log(
+    displayRoundResult(
       `You win! ${humanSelection} beats ${computerSelection}.`
     );
   } else {
     computerScore++;
-    console.log(
+    displayRoundResult(
       `You lose! ${computerSelection} beats ${humanSelection}.`
     );
   }
 
-  console.log(`Score → You: ${humanScore}, Computer: ${computerScore}`);
+  updateScoreDisplay();
+  checkGameOver();
 }
 
+// Event listeners
 
-// UI interaction
-const buttons = document.querySelectorAll("#container button");
-
-buttons.forEach((button) => {
+buttons.forEach(button => {
   button.addEventListener("click", (event) => {
     const humanSelection = event.target.id;
     const computerSelection = getComputerChoice();
@@ -51,3 +91,8 @@ buttons.forEach((button) => {
     playRound(humanSelection, computerSelection);
   });
 });
+
+
+// Initial UI state
+
+updateScoreDisplay();
